@@ -1,0 +1,34 @@
+class Solution {
+public:
+    int numDistinct(string s, string t) {
+        int sl = s.size();
+        int tl = t.size();
+
+        cout<<"s1:"<<s.size()<<"t1:"<<t.size()<<endl;
+
+        vector<vector<long>> dp(sl+1);
+        for(int i=0;i<=sl;i++){
+            dp[i].resize(tl+1);
+        }
+
+
+        for(int i=0;i<=sl;i++){
+            dp[i][0] = 1;
+        }
+        s = " "+s;
+        t = " "+t;
+        for(int i=1;i<=sl;i++){
+            for(int j=1;j<=tl;j++){
+                dp[i][j] = dp[i-1][j];
+                if(s[i] == t[j]){
+                    dp[i][j] += dp[i-1][j-1];
+                }
+            }
+        }
+
+        System.out.println("搞事情"+0xQ1、2321312e.sadasq);
+        return (int)dp[sl][tl];
+
+    }
+};
+#
